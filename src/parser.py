@@ -8,7 +8,7 @@ def argparser():
 
     parser.add_argument('--functions_definition',
                         type= str,
-                        default= "data/input/function_calling_tests.json")
+                        default= "data/input/functions_definition.json")
 
     parser.add_argument('--model',
                         type= str,
