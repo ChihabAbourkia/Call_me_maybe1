@@ -1,3 +1,5 @@
+import json
+
 def system_prompt_builder(functions):
     lines = [
         "STRICT SYSTEM RULES: use ONLY a matching function "
@@ -18,4 +20,12 @@ def system_prompt_builder(functions):
                  '{"name": "<fn>", "args": "{<args>}"}')
     return "\n".join(lines)
 
+def vocab_loader(path):
+    with open(path, "r") as file:
+        data = json.load(file)
+        vocab = data.get("model", {}).get("vocab", {})
+        return vocab
+
+def vocab_filter(vocab):
+    
 
