@@ -28,9 +28,7 @@ def main():
     print("✅ building valid ids")
     path = model.get_path_to_tokenizer_file()
     print(path)
-  
-    # clean_vocab = vocab_cleaner(vocab)
-
+    
 
 
 if __name__ == "__main__":

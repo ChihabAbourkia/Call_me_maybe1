@@ -1,4 +1,5 @@
 import json
+import numpy as np
 
 def system_prompt_builder(functions):
     lines = [
@@ -35,4 +36,13 @@ def vocab_filter(vocab):
             clean_vocab.add(token_id)
     return clean_vocab
 
+def mask_logits(clean_vocab, logits):
+    for token_id in range(len(logits)):
+        if token_id not in clean_vocab:
+            logits[token_id] = float("-inf")
+    return logits
 
+def next_token(logits):
+      masked_logits = masked_logits(logits)
+      next = np.argmax(masked_logits)
+      return next
